@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>北京奥运城市发展促进会 - 2023新年贺卡</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/app.css">
+
+        <script src="libs/modernizr-2.8.3.min.js"></script>
+        <script src="libs/jquery-1.12.0.min.js"></script>
+    </head>
+    <body>
+
+    <div class="app-body">
+        <div id="musicSwitch" class="m-btn"></div>
+        <div class="ele intro" style="width: 360px; left: -10px; top: -10px;"><img src="img/007.png" /></div>
+        <div class="ele intro2" style="width: 120px; left: -10px; top: -30px;"><img src="img/010.png" /></div>
+        <div class="ele intro2" style="width: 120px; left: 60px; top: -10px;"><img src="img/010.png" /></div>
+        <div class="ele motion-a intro4" style="width: 70px; left: 180px; top: 20px;"><img src="img/003.png" /></div>
+        <div class="ele intro" style="width: 360px; left: -10px; top: -10px;"><img src="img/011.png" /></div>
+        <div class="ele intro2" style="width: 220px; left: 50px; top: 90px;"><img src="img/010.png" /></div>
+        <div class="ele intro2" style="width: 200px; left: 170px; top: 80px;"><img src="img/010.png" /></div>
+        <div class="ele intro2" style="width: 220px; left: -50px; top: 60px;"><img src="img/010.png" /></div>
+        <div class="ele intro" style="width: 360px; right: -10px; top: 100px;"><img src="img/012.png" /></div>
+        <div class="ele intro3" style="width: 150px; left: 30px; top: 30px;"><img src="img/002.png" /></div>
+        <div class="ele intro3" style="width: 180px; left: 40px; top: 115px;"><img src="img/001.png" /></div>
+        <div class="ele intro3" style="width: 90px; left: 40px; top: 160px;"><img src="img/016.png" /></div>
+        <div class="ele motion-b intro4" style="width: 100px; left: 200px; top: 130px;"><img src="img/004.png" /></div>
+        <div class="ele intro2" style="width: 300px; right: -230px; top: 90px;"><img src="img/010.png" /></div>
+        <div class="ele intro2" style="width: 300px; right: -80px; top: 200px;"><img src="img/010.png" /></div>
+        <div class="ele intro" style="width: 400px; left: -20px; top: 185px;"><img src="img/008.png" /></div>
+        <div class="ele motion-c intro4" style="width: 70px; right: 10px; top: 230px;"><img src="img/006.png" /></div>
+        <div class="ele intro2" style="width: 470px; left: -110px; bottom: -70px;"><img src="img/010.png" /></div>
+        <div class="ele swing intro4" style="width: 260px; left: 0; top: 300px;"><img src="img/009.png" /></div>
+        <div class="ele" style="width: 100%; height: 80px; top: 540px; background: white"></div>
+        <div class="ele intro3" style="width: 180px; left: 90px; top: 545px;"><img src="img/005.png" /></div>
+        <div class="ele star-big" style="width: 60px; left: 260px; top: 110px;"><img src="img/013.png" /></div>
+        <div class="ele star-big" style="width: 50px; left: 140px; top: 270px;"><img src="img/014.png" /></div>
+        <div class="ele star-big" style="width: 80px; left: 240px; top: 380px;"><img src="img/015.png" /></div>
+    </div>
+    <audio id="m" autoplay="autoplay" loop="loop" src="bg1.mp3"></audio>
+
+    <script>
+        //
+        var media = document.getElementById("m");
+        document.addEventListener('WeixinJSBridgeReady', function(){media.play()});
+        //
+        $(function () {
+            //
+            $(".intro").each(function (i) {$(this).css('animation-delay', i*200 +'ms')});
+            $(".intro2").each(function (i) {$(this).css('animation-delay', (i*100 + 1000) +'ms')});
+            $(".intro3").each(function (i) {$(this).css('animation-delay', (i*100 + 2000) +'ms')});
+            $(".intro4").delay(2000).fadeIn(1000);
+            $(".star-big").each(function () {$(this).css('animation-delay', Math.round(Math.random()*5000) + 'ms')});
+            //
+            $("#musicSwitch").click(function () {
+                $(this).toggleClass("m-motion");
+                if (media.paused) media.play();
+                else media.pause();
+            });
+            //
+            $(window).resize(function () {
+                var ww = $(this).width(), wh = $(this).height();
+                var pw = $('.app-body').width(), ph = $('.app-body').height();
+                var flip = wh < ww && false;
+                var deg = flip? '90deg':'0';
+                var ratio = flip? Math.min(ww/ph, wh/pw):Math.min(ww/pw, wh/ph);
+                $('.app-body').css({
+                    top: Math.round((wh-ph)/2),
+                    left: Math.round((ww-pw)/2),
+                    transform: 'rotate('+deg+') scale('+ratio+')'
+                });
+            }).resize();
+        });
+    </script>
+    </body>
+</html>
