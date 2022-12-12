@@ -1,7 +1,8 @@
 
 html, body { height: 100%; background: #bc2526;}
 
-.app-body { height: 600px; width: 340px; overflow: hidden; position: relative;}
+.app-body { height: 600px; width: 340px; overflow: hidden; position: relative; }
+.app-border { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; border: 3px solid gold; box-sizing: border-box; }
 .m-btn { position: absolute; right: 10px; top: 10px; width: 20px; height: 20px; border: 2px solid white; border-radius: 50%;}
 .m-btn { background: black url("../img/switch.png") 50% 50%/100% 100% no-repeat; opacity: 0.5; z-index: 99;}
 
